@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "E:\\Android_yjm_black\\20170306\\LxLearn\\zxing\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 1942,
+                    "endColumn": 53,
+                    "endOffset": 1991
+                },
+                "from": {
+                    "file": "E:\\Android_yjm_black\\20170306\\LxLearn\\zxing\\build\\intermediates\\exploded-aar\\LxLearn\\qrcodecore\\unspecified\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 1942,
+                        "endColumn": 53,
+                        "endOffset": 1991
+                    }
+                }
+            }
+        ]
+    }
+]

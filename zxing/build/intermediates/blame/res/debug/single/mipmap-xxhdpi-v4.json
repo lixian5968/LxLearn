@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\Android_yjm_black\\20170306\\LxLearn\\zxing\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\qrcode_default_scan_line.png",
+        "source": "E:\\Android_yjm_black\\20170306\\LxLearn\\zxing\\build\\intermediates\\exploded-aar\\LxLearn\\qrcodecore\\unspecified\\res\\mipmap-xxhdpi-v4\\qrcode_default_scan_line.png"
+    },
+    {
+        "merged": "E:\\Android_yjm_black\\20170306\\LxLearn\\zxing\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\qrcode_default_grid_scan_line.png",
+        "source": "E:\\Android_yjm_black\\20170306\\LxLearn\\zxing\\build\\intermediates\\exploded-aar\\LxLearn\\qrcodecore\\unspecified\\res\\mipmap-xxhdpi-v4\\qrcode_default_grid_scan_line.png"
+    }
+]

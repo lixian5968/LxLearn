@@ -1,5 +1,7 @@
 package com.zongbutech.lxleanlingdongdemo.FingerDemo;
 
+import android.app.KeyguardManager;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.security.keystore.KeyGenParameterSpec;
@@ -7,8 +9,9 @@ import android.security.keystore.KeyProperties;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v4.os.CancellationSignal;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zongbutech.lxleanlingdongdemo.R;
 
@@ -34,11 +37,13 @@ public class FingerActivityDemo extends AppCompatActivity {
 
     SecretKey key;
     Cipher defaultCipher;
-
+    TextView mTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finger_demo);
+        mTextView = (TextView) findViewById(R.id.mTextView);
+
 
         fingerprintManager = FingerprintManagerCompat.from(this);
 
@@ -84,12 +89,19 @@ public class FingerActivityDemo extends AppCompatActivity {
             throw new RuntimeException("创建Cipher对象失败", e);
         }
 
+
     }
 
     public class MyAuthCallback extends FingerprintManagerCompat.AuthenticationCallback {
         @Override
         public void onAuthenticationError(int errMsgId, CharSequence errString) {
             super.onAuthenticationError(errMsgId, errString);
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mTextView.setText("指纹验证错误");
+                }
+            });
         }
 
         @Override
@@ -100,21 +112,25 @@ public class FingerActivityDemo extends AppCompatActivity {
         @Override
         public void onAuthenticationSucceeded(FingerprintManagerCompat.AuthenticationResult result) {
             super.onAuthenticationSucceeded(result);
-            boolean isKey = false;
-            try {
-                result.getCryptoObject().getCipher().doFinal(key.getEncoded());
-                isKey = true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                isKey = false;
-            }
 
-            Log.e("", "isKey");
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mTextView.setText("指纹验证成功");
+                }
+            });
+
         }
 
         @Override
         public void onAuthenticationFailed() {
             super.onAuthenticationFailed();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mTextView.setText("指纹验证失败");
+                }
+            });
         }
 
     }
@@ -122,18 +138,37 @@ public class FingerActivityDemo extends AppCompatActivity {
     CancellationSignal mCancellationSignal;
 
     public void Start(View v) {
-        mCancellationSignal = new CancellationSignal();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            fingerprintManager.authenticate(
-                    new FingerprintManagerCompat.CryptoObject(defaultCipher),
-                    0,
-                    mCancellationSignal,
-                    new MyAuthCallback(),
-                    null);
+            if (fingerprintManager.isHardwareDetected()) {
+                if (fingerprintManager.hasEnrolledFingerprints()){
+                    KeyguardManager keyguardManager =(KeyguardManager)getSystemService(Context.KEYGUARD_SERVICE);
+                    //有键盘锁
+                    if (keyguardManager.isKeyguardSecure()) {
+                        mTextView.setText("开始验证指纹");
+                        // this device is secure.
+                        mCancellationSignal = new CancellationSignal();
+                        fingerprintManager.authenticate(
+                                new FingerprintManagerCompat.CryptoObject(defaultCipher),
+                                0,
+                                mCancellationSignal,
+                                new MyAuthCallback(),
+                                null);
+                    }else{//没有键盘锁
+                        Toast.makeText(FingerActivityDemo.this, "没有键盘锁,不能使用指纹", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(FingerActivityDemo.this, "确定指纹已经录取", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(FingerActivityDemo.this, "用户没有指纹控件", Toast.LENGTH_SHORT).show();
+            }
         }
+
+
     }
 
     public void Close(View v) {
+        mTextView.setText("关闭验证指纹");
         mCancellationSignal.cancel();
         mCancellationSignal = null;
     }
