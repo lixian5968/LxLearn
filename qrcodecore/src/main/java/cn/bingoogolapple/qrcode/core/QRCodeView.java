@@ -37,7 +37,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(context, attrs);
         layoutParams.addRule(RelativeLayout.ALIGN_TOP, mPreview.getId());
         layoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, mPreview.getId());
-//        addView(mScanBoxView, layoutParams);
+        addView(mScanBoxView, layoutParams);
     }
 
     /**

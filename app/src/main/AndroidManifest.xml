@@ -30,6 +30,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
+        android:name=".Base.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -71,12 +72,22 @@
         <activity android:name=".LxAppExtractor.LxExtractorActivity" />
         <activity android:name=".LeanQRCode.QRCodeActivity1" />
         <activity android:name=".FingerDemo.FingerActivityDemo" />
-        <activity android:name=".ZXingDemo.ZXingDemo.ZXingDemo">
+        <activity android:name=".ZXingDemo.ZXingDemo.ZXingDemo" />
+        <activity android:name=".ZXingDemo.CameraDemo.LxSurActivity" />
+        <activity android:name=".LxCameraDemo.CameraActivity" />
+        <activity android:name=".ZXingDemo.CustomView.SacnActivity" />
+        <activity android:name=".Base.AllActivity" />
+        <activity android:name=".ZXingDemo.LxZxingDemo.LxZXingDemo" />
+        <activity android:name=".ZXingDemo.ImageChange.ImageChangeAcitivyt" />
+        <activity android:name=".GsonDemo.GsonActivity" />
+        <activity android:name=".PhoneScreen.ScreenTestActivity"></activity>
+        <activity android:name=".PhoneScreen.ReplaceActivity" />
+        <activity android:name=".PhoneScreen.SreemTouchActivity" />
+        <activity android:name=".TestFont.TextViewFontActivity">
 
         </activity>
-        <activity android:name=".ZXingDemo.CameraDemo.LxSurActivity"></activity>
-        <activity android:name=".LxCameraDemo.CameraActivity" />
-        <activity android:name=".ZXingDemo.CustomView.SacnActivity">
+        <activity
+            android:name=".InternatDemo.InternatActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -13,4 +13,7 @@
     <string name="alert_root_yes">Lets try with root</string>
     <string name="alert_root_no">Not now</string>
 
+
+    <string name="HelloWorld">你好 世界</string>
+
 </resources>

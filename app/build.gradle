@@ -31,4 +31,7 @@ dependencies {
 
     compile project(':qrcodecore')
     compile project(':zxing')
+
+
+    compile 'com.google.code.gson:gson:2.2.4'
 }

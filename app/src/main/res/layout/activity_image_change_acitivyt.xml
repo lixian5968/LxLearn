@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/imge_src"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <Button
+        android:onClick="getInfo"
+        android:layout_marginTop="10dp"
+        android:text="获取信息"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:onClick="changeInfo"
+        android:layout_marginTop="10dp"
+        android:text="复制变色"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <ImageView
+        android:id="@+id/ChangeImage"
+        android:src="@drawable/imge_src"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+
+</LinearLayout>

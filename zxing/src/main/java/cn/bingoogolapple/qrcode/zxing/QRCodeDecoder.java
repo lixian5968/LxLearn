@@ -45,8 +45,12 @@ public class QRCodeDecoder {
         allFormats.add(BarcodeFormat.UPC_E);
         allFormats.add(BarcodeFormat.UPC_EAN_EXTENSION);
 
+        //TRY_HARDER  花更多的时间尝试找到条形码; 优化精度，而不是速度。
+        //QR_CODE     QR码二维条码格式。
         HINTS.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        //POSSIBLE_FORMATS 已知图像是几种可能的格式之一。
         HINTS.put(DecodeHintType.POSSIBLE_FORMATS, allFormats);
+        //CHARACTER_SET 指定在解码时要使用的字符编码，如果适用（类型String）
         HINTS.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 

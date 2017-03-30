@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题1  normal" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题2   bold"
+        android:textStyle="bold" />
+
+    <TextView
+        android:textStyle="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="标题3  sans-serif" />
+
+    <TextView
+        android:textStyle="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="标题4  sans-serif-light" />
+
+
+    <TextView
+        android:textStyle="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="标题5  sans-serif-condensed" />
+
+
+    <TextView
+        android:textStyle="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin"
+        android:text="标题6  sans-serif-thin" />
+
+
+
+
+    <TextView
+        android:id="@+id/mTextView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题7  sans-serif-thin" />
+
+
+    <com.zongbutech.lxleanlingdongdemo.TestFont.LxTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题8  sans-serif-thin" />
+
+
+</LinearLayout>

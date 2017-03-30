@@ -16,6 +16,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 public class ScanBoxView extends View {
@@ -77,8 +78,24 @@ public class ScanBoxView extends View {
 
     private boolean mIsOnlyDecodeScanBoxArea;
 
+    public ScanBoxView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context);
+        initCustomAttrs(context, attrs);
+    }
+
+    public ScanBoxView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context);
+        initCustomAttrs(context, attrs);
+    }
+
     public ScanBoxView(Context context) {
         super(context);
+        init(context);
+    }
+
+    private void init(Context context) {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mMaskColor = Color.parseColor("#33FFFFFF");
@@ -119,6 +136,7 @@ public class ScanBoxView extends View {
 
         mIsOnlyDecodeScanBoxArea = false;
     }
+
 
     public void initCustomAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.QRCodeView);
@@ -473,6 +491,7 @@ public class ScanBoxView extends View {
 
         }
         postInvalidateDelayed(mAnimDelayTime, mFramingRect.left, mFramingRect.top, mFramingRect.right, mFramingRect.bottom);
+        Log.e("LXmAnimDelayTime",mAnimDelayTime+"");
     }
 
     @Override

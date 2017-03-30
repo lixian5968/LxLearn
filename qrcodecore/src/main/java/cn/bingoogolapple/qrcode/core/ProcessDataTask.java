@@ -1,8 +1,16 @@
 package cn.bingoogolapple.qrcode.core;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.ImageFormat;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
 import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.util.Log;
+
+import java.io.ByteArrayOutputStream;
 
 public class ProcessDataTask extends AsyncTask<Void, Void, String> {
     private Camera mCamera;
@@ -42,6 +50,20 @@ public class ProcessDataTask extends AsyncTask<Void, Void, String> {
         Camera.Size size = parameters.getPreviewSize();
         int width = size.width;
         int height = size.height;
+
+
+
+        final YuvImage image = new YuvImage(mData, ImageFormat.NV21, width, height, null);
+        ByteArrayOutputStream os = new ByteArrayOutputStream(mData.length);
+        if(image.compressToJpeg(new Rect(0, 0, width, height), 100, os)){
+            byte[] tmp = os.toByteArray();
+            Bitmap bmp = BitmapFactory.decodeByteArray(tmp, 0,tmp.length);
+
+            Log.e("","");
+        }
+
+
+
 
         byte[] rotatedData = new byte[mData.length];
         for (int y = 0; y < height; y++) {
