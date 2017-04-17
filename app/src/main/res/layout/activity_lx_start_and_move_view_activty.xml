@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <com.zongbutech.lxleanlingdongdemo.PorterBuffDemo.View.StartAndMovieView
+        android:id="@+id/mStartAndMovieView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp">
+
+        <com.flaviofaria.kenburnsview.KenBurnsView
+            android:id="@+id/mKenBurnsView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img1" />
+    </com.zongbutech.lxleanlingdongdemo.PorterBuffDemo.View.StartAndMovieView>
+
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/mEditText"
+        android:text="3"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="Add"
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="Sub"
+        android:text="Sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+    <Button
+        android:onClick="StartNoPoint"
+        android:text="正方体"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:onClick="StartPoint"
+        android:text="星形"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

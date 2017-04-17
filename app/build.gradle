@@ -26,12 +26,12 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:recyclerview-v7:25.1.0'
+    compile 'com.android.support:recyclerview-v7:23.1.1@aar'
     compile 'com.android.support:cardview-v7:25.1.0'
-
     compile project(':qrcodecore')
     compile project(':zxing')
-
-
     compile 'com.google.code.gson:gson:2.2.4'
+    compile project(':photolibrary')
+
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
 }

@@ -1,1 +1,1 @@
-include ':app', ':zxing', ':qrcodecore'
+include ':app', ':zxing', ':qrcodecore', ':photolibrary'

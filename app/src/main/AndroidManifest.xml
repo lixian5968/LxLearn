@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zongbutech.lxleanlingdongdemo">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -28,6 +29,7 @@
 
     <!-- 获取手机信息 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".Base.MyApplication"
@@ -80,21 +82,28 @@
         <activity android:name=".ZXingDemo.LxZxingDemo.LxZXingDemo" />
         <activity android:name=".ZXingDemo.ImageChange.ImageChangeAcitivyt" />
         <activity android:name=".GsonDemo.GsonActivity" />
-        <activity android:name=".PhoneScreen.ScreenTestActivity"></activity>
+        <activity android:name=".PhoneScreen.ScreenTestActivity" />
         <activity android:name=".PhoneScreen.ReplaceActivity" />
         <activity android:name=".PhoneScreen.SreemTouchActivity" />
-        <activity android:name=".TestFont.TextViewFontActivity">
-
-        </activity>
-        <activity
-            android:name=".InternatDemo.InternatActivity">
-
+        <activity android:name=".TestFont.TextViewFontActivity" />
+        <activity android:name=".InternatDemo.InternatActivity" />
+        <activity android:name=".LxImageView.LxImageActivity" />
+        <activity android:name=".TextViewShow.TextViewShowActivity" />
+        <activity android:name=".MP4SRTDemo.MP4SRTDemoActivity" />
+        <activity android:name=".GPSChangeDemo.GPSChangeAcitivity" />
+        <activity android:name=".RecycleDemo.LxRecycleActivity" />
+        <activity android:name=".PorterBuffDemo.PorterActivity" />
+        <activity android:name=".PorterBuffDemo.AllPorterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PorterBuffDemo.StartActivity" />
+        <activity android:name=".PorterBuffDemo.LxStartActivity" />
+        <activity android:name=".PorterBuffDemo.LxStartAndMoveViewActivty" />
+        <activity android:name=".PorterBuffDemo.PointStartActivity"></activity>
     </application>
 
 </manifest>

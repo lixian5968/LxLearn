@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<attr name="tip_tooltip_bg" format="reference"  ></attr>
+
+	<declare-styleable name="CollapsibleTextView">
+		<attr name="suffixColor" format="color"/>
+		<attr name="collapsedLines" format="integer"/>
+		<attr name="collapsedText" format="string"/>
+		<attr name="expandedText" format="string"/>
+		<attr name="suffixTrigger" format="boolean"/>
+	</declare-styleable>
+
+
+	<declare-styleable name="DiagonalLayout">
+		<attr name="diagonal_angle" format="integer" />
+	</declare-styleable>
 </resources>
