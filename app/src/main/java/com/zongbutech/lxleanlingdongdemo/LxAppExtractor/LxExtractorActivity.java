@@ -16,12 +16,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zongbutech.lxleanlingdongdemo.R;
+import com.zongbutech.lxleanlingdongdemo.Utils.RootUtils.Root;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -37,39 +39,80 @@ public class LxExtractorActivity extends AppCompatActivity {
     List<ApplicationInfo> packages;
     List<AppInfo> mAppInfos;
 
+    EditText et;
+
+    public void Search(View v) {
+        et = new EditText(LxExtractorActivity.this);
+        new AlertDialog.Builder(LxExtractorActivity.this).setTitle("搜索")
+                .setView(et).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (et.getText().length() == 0) {
+                    mAppInfos.clear();
+                    for (ApplicationInfo info : packages) {
+                        mAppInfos.add(new AppInfo(info.packageName, info.loadIcon(ct.getPackageManager()), info));
+                    }
+                    adapter.notifyDataSetChanged();
+                } else {
+                    mAppInfos.clear();
+                    for (ApplicationInfo info : packages) {
+                        if (info.packageName.contains(et.getText().toString())) {
+                            mAppInfos.add(new AppInfo(info.packageName, info.loadIcon(ct.getPackageManager()), info));
+                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        }).show();
+    }
+
+    LxAPPInfoAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lx_extractor);
+
+        Root mRoot = new Root();
+        if (mRoot.isDeviceRooted()) {
+            Toast.makeText(LxExtractorActivity.this, "装备已经刷机", Toast.LENGTH_SHORT).show();
+        }
+
         ct = this;
         ListView mListView = (ListView) findViewById(R.id.mListView);
         packages = getPackageManager().getInstalledApplications(PackageManager.GET_META_DATA);
         mAppInfos = new ArrayList<>();
         for (ApplicationInfo info : packages) {
-            mAppInfos.add(new AppInfo(info.packageName, info.loadIcon(ct.getPackageManager())));
+            mAppInfos.add(new AppInfo(info.packageName, info.loadIcon(ct.getPackageManager()), info));
         }
-        LxAPPInfoAdapter adapter = new LxAPPInfoAdapter(ct, mAppInfos);
+        adapter = new LxAPPInfoAdapter(ct, mAppInfos);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                new AlertDialog.Builder(ct).setTitle("是否导出文件？")
+                String message = "文件位置：" + mAppInfos.get(position).info.sourceDir;
+                new AlertDialog.Builder(ct).setTitle("是否导出文件？").setMessage(message)
                         .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                File src = new File(packages.get(position).sourceDir);
-                                File OutAll = new File(Environment.getExternalStorageDirectory(),"LxApks");
-                                if(!OutAll.exists()){
+                                File src = new File(mAppInfos.get(position).info.sourceDir);
+                                File OutAll = new File(Environment.getExternalStorageDirectory(), "LxApks");
+                                if (!OutAll.exists()) {
                                     OutAll.mkdirs();
                                 }
-                                File OutAllAPk = new File(OutAll.getPath(), mAppInfos.get(position).name+".apk");
+                                File OutAllAPk = new File(OutAll.getPath(), mAppInfos.get(position).name + ".apk");
                                 try {
                                     FileInputStream inputStream = new FileInputStream(src);
-                                    FileOutputStream outputStream =new FileOutputStream(OutAllAPk);
-                                    FileChannel inChan= inputStream.getChannel();
+                                    FileOutputStream outputStream = new FileOutputStream(OutAllAPk);
+                                    FileChannel inChan = inputStream.getChannel();
                                     FileChannel outChan = outputStream.getChannel();
-                                    inChan.transferTo(0,inChan.size(),outChan);
+                                    inChan.transferTo(0, inChan.size(), outChan);
                                     inputStream.close();
                                     outputStream.close();
                                 } catch (Exception e) {
@@ -78,7 +121,7 @@ public class LxExtractorActivity extends AppCompatActivity {
 
 
                                 ToMainFile(OutAll);
-                                Toast.makeText(ct,"复制成功",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ct, "复制成功", Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
                             }
                         })
@@ -92,15 +135,15 @@ public class LxExtractorActivity extends AppCompatActivity {
         });
     }
 
-    public void ToMainFile(File mFile){
-        Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setDataAndType(Uri.fromFile(mFile),"*/*");
+    public void ToMainFile(File mFile) {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setDataAndType(Uri.fromFile(mFile), "*/*");
         //设置文件类型
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         // 添加Category属性
-        try{
+        try {
             startActivity(intent);
-        }catch(Exception e){
+        } catch (Exception e) {
             Toast.makeText(this, "没有正确打开文件管理器", Toast.LENGTH_SHORT).show();
         }
     }
@@ -109,10 +152,12 @@ public class LxExtractorActivity extends AppCompatActivity {
     public class AppInfo implements Serializable {
         public String name;
         public Drawable icon;
+        public ApplicationInfo info;
 
-        public AppInfo(String name, Drawable icon) {
+        public AppInfo(String name, Drawable icon, ApplicationInfo info) {
             this.name = name;
             this.icon = icon;
+            this.info = info;
         }
     }
 

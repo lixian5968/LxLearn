@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LxLeanLingdongDemo</string>
+    <string name="app_name">Lx工具类</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="dlg_loading_title">Loading</string>
@@ -15,5 +15,6 @@
 
 
     <string name="HelloWorld">你好 世界</string>
+    <string name="title_activity_goto_show">GotoShowActivity</string>
 
 </resources>

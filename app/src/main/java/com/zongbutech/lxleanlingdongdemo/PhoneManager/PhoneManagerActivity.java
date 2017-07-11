@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +70,11 @@ public class PhoneManagerActivity extends AppCompatActivity {
         mPhoneInfos.add("IMEI:" + tm.getDeviceId());
         //IMEI
         mPhoneInfos.add("IP:" + getWIFILocalIpAdress(ct));
-
+        //屏幕信息
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        int w_screen = dm.widthPixels;
+        int h_screen = dm.heightPixels;
+        mPhoneInfos.add("屏幕信息:" + "屏幕尺寸2：宽度 = " + w_screen + "高度 = " + h_screen + "密度 = " + dm.densityDpi);
 
         adapter = new UserInfoAdapter(PhoneManagerActivity.this, mPhoneInfos);
         mListView.setAdapter(adapter);
@@ -93,7 +98,9 @@ public class PhoneManagerActivity extends AppCompatActivity {
         float batteryPct = level / (float) scale;
 
 
-        PhonePower.setText("充电：" + isCharging+",level:"+level+",scale:"+scale+",batteryPct:"+batteryPct);
+        PhonePower.setText("充电：" + isCharging + ",level:" + level + ",scale:" + scale + ",batteryPct:" + batteryPct);
+
+
     }
 
 

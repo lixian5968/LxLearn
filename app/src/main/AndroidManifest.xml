@@ -74,7 +74,15 @@
         <activity android:name=".LxAppExtractor.LxExtractorActivity" />
         <activity android:name=".LeanQRCode.QRCodeActivity1" />
         <activity android:name=".FingerDemo.FingerActivityDemo" />
-        <activity android:name=".ZXingDemo.ZXingDemo.ZXingDemo" />
+        <activity android:name=".ZXingDemo.ZXingDemo.ZXingDemo">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity android:name=".ZXingDemo.CameraDemo.LxSurActivity" />
         <activity android:name=".LxCameraDemo.CameraActivity" />
         <activity android:name=".ZXingDemo.CustomView.SacnActivity" />
@@ -94,16 +102,30 @@
         <activity android:name=".RecycleDemo.LxRecycleActivity" />
         <activity android:name=".PorterBuffDemo.PorterActivity" />
         <activity android:name=".PorterBuffDemo.AllPorterActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".PorterBuffDemo.StartActivity" />
+        <activity android:name=".PorterBuffDemo.LxStartActivity" />
+        <activity android:name=".PorterBuffDemo.LxStartAndMoveViewActivty" />
+        <activity android:name=".PorterBuffDemo.PointStartActivity" />
+        <activity android:name=".ConnectPhone.ConnectAcitivity" />
+        <activity android:name=".AllAcitivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PorterBuffDemo.StartActivity" />
-        <activity android:name=".PorterBuffDemo.LxStartActivity" />
-        <activity android:name=".PorterBuffDemo.LxStartAndMoveViewActivty" />
-        <activity android:name=".PorterBuffDemo.PointStartActivity"></activity>
+        <activity
+            android:name=".ConnectPhone.GotoShowActivity"
+            android:label="@string/title_activity_goto_show"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
