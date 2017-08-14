@@ -7,7 +7,6 @@ import android.hardware.Camera;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -29,18 +28,18 @@ import cn.bingoogolapple.qrcode.zxing.QRCodeDecoder;
  * Created by lixian on 2017/3/23.
  */
 
-public class LxZxingSurfaceView extends SurfaceView implements SurfaceHolder.Callback, Camera.PreviewCallback, LxProcessDataTask.Delegate {
-    public LxZxingSurfaceView(Context context) {
+public class LxZxingSurfaceView2 extends SurfaceView implements SurfaceHolder.Callback, Camera.PreviewCallback, LxProcessDataTask.Delegate {
+    public LxZxingSurfaceView2(Context context) {
         super(context);
         init(context);
     }
 
-    public LxZxingSurfaceView(Context context, AttributeSet attrs) {
+    public LxZxingSurfaceView2(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public LxZxingSurfaceView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LxZxingSurfaceView2(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -50,21 +49,11 @@ public class LxZxingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     Handler mHandler;
 
 
-    int width;
-    int height;
     private void init(Context context) {
         ct = context;
         mSurfaceHolder = this.getHolder();
         mSurfaceHolder.addCallback(this);
         mHandler = new Handler();
-
-        if (ct instanceof LxZXingDemo) {
-            DisplayMetrics metric = new DisplayMetrics();
-            ((LxZXingDemo) ct).getWindowManager().getDefaultDisplay().getMetrics(metric);
-            width = metric.widthPixels;
-            height = metric.heightPixels;
-        }
-
 
     }
 
@@ -101,8 +90,8 @@ public class LxZxingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
         Camera.Parameters parameters = camera.getParameters();
         //设置图片大小的分辨率
         parameters.setPreviewSize(1920, 1080);
-        parameters.set("zoom", String.valueOf(27 / 10.0));
-//        setZoom(parameters);
+//        parameters.set("zoom", String.valueOf(27 / 10.0));
+        setZoom(parameters);
         parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
         camera.setDisplayOrientation(90);
         camera.setParameters(parameters);
@@ -273,7 +262,7 @@ public class LxZxingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
         public void run() {
             if (camera != null) {
                 try {
-                    camera.setOneShotPreviewCallback(LxZxingSurfaceView.this);
+                    camera.setOneShotPreviewCallback(LxZxingSurfaceView2.this);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -296,7 +285,7 @@ public class LxZxingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
                     }
                 } else {
                     try {
-                        camera.setOneShotPreviewCallback(LxZxingSurfaceView.this);
+                        camera.setOneShotPreviewCallback(LxZxingSurfaceView2.this);
                     } catch (Exception e) {
                     }
                 }

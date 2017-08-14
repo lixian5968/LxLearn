@@ -23,6 +23,21 @@
             android:layout_marginLeft="20dp"
             android:text="AppName" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/CheckImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:background="#000"
+                android:src="@drawable/check" />
+
+        </RelativeLayout>
+
+
     </LinearLayout>
 
 

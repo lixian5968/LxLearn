@@ -78,7 +78,7 @@ public class LxZXingDemo extends AppCompatActivity {
                     if (!newFile.exists()) {
                         newFile.mkdir();
                     }
-                    File ImageFile = new File(newFile,System.currentTimeMillis()+".jpg");
+                    File ImageFile = new File(newFile, System.currentTimeMillis() + ".jpg");
                     try {
                         FileOutputStream outputStream = new FileOutputStream(ImageFile);
                         NewBitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
@@ -88,7 +88,7 @@ public class LxZXingDemo extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    Toast.makeText(LxZXingDemo.this,"保存成功",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LxZXingDemo.this, "保存成功", Toast.LENGTH_SHORT).show();
 
 
                 }

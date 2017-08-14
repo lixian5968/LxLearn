@@ -52,7 +52,18 @@
 
         </activity>
         <activity android:name=".Test.TestCopyActivity" />
+        <activity android:name=".Test.TestPermissionActivity" />
+        <activity android:name=".Test.TestPermissionActivity2" />
+
         <activity android:name=".PhoneManager.PhoneManagerActivity" />
+
+        <activity
+            android:name=".InPutInfoAndOutofInfo.TestInputInfo"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".InPutInfoAndOutofInfo.TestOutPutInfo" />
+
 
         <receiver android:name=".PhoneManager.PowerConnectionReceiver">
             <intent-filter>
@@ -72,6 +83,7 @@
         <activity android:name=".MP3Demo.MP4PlayActivity" />
         <activity android:name=".Apkextractor.APKMainActivity" />
         <activity android:name=".LxAppExtractor.LxExtractorActivity" />
+        <activity android:name=".LxAppExtractor.LxDeleteActivity" />
         <activity android:name=".LeanQRCode.QRCodeActivity1" />
         <activity android:name=".FingerDemo.FingerActivityDemo" />
         <activity android:name=".ZXingDemo.ZXingDemo.ZXingDemo">
@@ -88,6 +100,10 @@
         <activity android:name=".ZXingDemo.CustomView.SacnActivity" />
         <activity android:name=".Base.AllActivity" />
         <activity android:name=".ZXingDemo.LxZxingDemo.LxZXingDemo" />
+        <activity android:name=".ZXingDemo.LxZxingDemo.LxZXingDemo2">
+
+
+        </activity>
         <activity android:name=".ZXingDemo.ImageChange.ImageChangeAcitivyt" />
         <activity android:name=".GsonDemo.GsonActivity" />
         <activity android:name=".PhoneScreen.ScreenTestActivity" />
@@ -115,6 +131,8 @@
         <activity android:name=".PorterBuffDemo.LxStartAndMoveViewActivty" />
         <activity android:name=".PorterBuffDemo.PointStartActivity" />
         <activity android:name=".ConnectPhone.ConnectAcitivity" />
+
+
         <activity android:name=".AllAcitivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -126,6 +144,11 @@
             android:name=".ConnectPhone.GotoShowActivity"
             android:label="@string/title_activity_goto_show"
             android:theme="@style/AppTheme"></activity>
+        <activity android:name="com.zongbutech.lxleanlingdongdemo.Test.TestRunnableActivity">
+
+        </activity>
+
+
     </application>
 
 </manifest>

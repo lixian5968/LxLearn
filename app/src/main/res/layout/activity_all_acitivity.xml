@@ -57,6 +57,46 @@
             android:onClick="Goto"
             android:text="电脑控制显示手机" />
 
+        <Button
+            android:id="@+id/bt7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="删除APP" />
+        <Button
+            android:id="@+id/bt8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="拍照效果" />
+
+        <Button
+            android:id="@+id/bt9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="开启关闭线程" />
+
+        <Button
+            android:id="@+id/bt10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="权限申请问题" />
+
+        <Button
+            android:id="@+id/bt11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="电脑向手机输入信息" />
+        <Button
+            android:id="@+id/bt12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="手机向电脑输出信息" />
+
     </LinearLayout>
 
 </ScrollView>
