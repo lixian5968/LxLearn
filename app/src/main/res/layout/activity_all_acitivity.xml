@@ -96,6 +96,34 @@
             android:layout_height="wrap_content"
             android:onClick="Goto"
             android:text="手机向电脑输出信息" />
+        <Button
+            android:id="@+id/bt13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="选择壁纸" />
+
+        <Button
+            android:id="@+id/bt14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="SD 卡搜寻" />
+
+
+        <Button
+            android:id="@+id/bt15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="辅助功能" />
+
+        <Button
+            android:id="@+id/bt16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Goto"
+            android:text="悬浮窗小电影" />
 
     </LinearLayout>
 

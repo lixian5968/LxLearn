@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.zongbutech.lxleanlingdongdemo.Accessibility.LxAllAccessAcitivity;
 import com.zongbutech.lxleanlingdongdemo.ConnectPhone.ConnectAcitivity;
 import com.zongbutech.lxleanlingdongdemo.FingerDemo.FingerActivityDemo;
 import com.zongbutech.lxleanlingdongdemo.InPutInfoAndOutofInfo.TestInputInfo;
@@ -17,6 +18,9 @@ import com.zongbutech.lxleanlingdongdemo.PorterBuffDemo.AllPorterActivity;
 import com.zongbutech.lxleanlingdongdemo.SDManager.SDManagerActivity;
 import com.zongbutech.lxleanlingdongdemo.Test.TestPermissionActivity2;
 import com.zongbutech.lxleanlingdongdemo.Test.TestRunnableActivity;
+import com.zongbutech.lxleanlingdongdemo.Wallpaper.LxGetMp4Activity;
+import com.zongbutech.lxleanlingdongdemo.Wallpaper.LxWallPaperAcitivity;
+import com.zongbutech.lxleanlingdongdemo.WindowManager.LxShowMovieWindows;
 import com.zongbutech.lxleanlingdongdemo.ZXingDemo.LxZxingDemo.LxZXingDemo;
 import com.zongbutech.lxleanlingdongdemo.ZXingDemo.LxZxingDemo.LxZXingDemo2;
 
@@ -27,12 +31,12 @@ public class AllAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_acitivity);
 
-        Log.e("lx","lx");
+        Log.e("lx", "lx");
     }
 
-    public void Goto(View v){
+    public void Goto(View v) {
         Intent it = null;
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.bt0:
                 it = new Intent(AllAcitivity.this, FingerActivityDemo.class);
                 break;
@@ -75,6 +79,21 @@ public class AllAcitivity extends AppCompatActivity {
                 break;
             case R.id.bt12:
                 it = new Intent(AllAcitivity.this, TestOutPutInfo.class);
+                break;
+            case R.id.bt13:
+                it = new Intent(AllAcitivity.this, LxWallPaperAcitivity.class);
+//                final Intent pickWallpaper = new Intent(Intent.ACTION_SET_WALLPAPER);
+//                it = Intent.createChooser(pickWallpaper, "选择壁纸");
+                break;
+            case R.id.bt14:
+                it = new Intent(AllAcitivity.this, LxGetMp4Activity.class);
+                break;
+            case R.id.bt15:
+                it = new Intent(AllAcitivity.this, LxAllAccessAcitivity.class);
+                break;
+
+            case R.id.bt16:
+                it = new Intent(AllAcitivity.this, LxShowMovieWindows.class);
                 break;
 
         }

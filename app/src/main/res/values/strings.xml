@@ -17,4 +17,29 @@
     <string name="HelloWorld">你好 世界</string>
     <string name="title_activity_goto_show">GotoShowActivity</string>
 
+
+    <string name="AccessServiceTopName">获取顶层Activity(推荐)</string>
+    <string name="AccessServiceTopDescription">获取顶层Activity</string>
+
+
+    <string name="AccessServiceQQResultName">QQ自动回复(推荐)</string>
+    <string name="AccessServiceQQResultDescription">QQ自动回复</string>
+
+    <string name="AccessServiceQQMoneyName">QQ自动抢红包(推荐)</string>
+    <string name="AccessServiceQQMoneyDescription">QQ自动抢红包</string>
+
+    <string name="AccessServiceWechatResultName">微信自动回复(推荐)</string>
+    <string name="AccessServiceWechatResultDescription">微信自动回复</string>
+
+    <string name="AccessServiceWechatMoneyName">微信自动抢红包(推荐)</string>
+    <string name="AccessServiceWechatMoneyDescription">微信自动抢红包</string>
+
+
+    <string name="AccessServiceInstallName">指定程序自动安装(推荐)</string>
+    <string name="AccessServiceInstallDescription">指定程序自动安装</string>
+
+
+    <string name="AccessServiceBuy1230">12306自动抢票(推荐)</string>
+    <string name="AccessServiceBuy1230Description">12306自动抢票</string>
+
 </resources>

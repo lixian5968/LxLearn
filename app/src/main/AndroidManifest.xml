@@ -3,6 +3,7 @@
     package="com.zongbutech.lxleanlingdongdemo">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -30,6 +31,23 @@
     <!-- 获取手机信息 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
 
     <application
         android:name=".Base.MyApplication"
@@ -147,7 +165,175 @@
         <activity android:name="com.zongbutech.lxleanlingdongdemo.Test.TestRunnableActivity">
 
         </activity>
+        <activity android:name="com.zongbutech.lxleanlingdongdemo.Test.TestRunnableActivity2">
 
+        </activity>
+
+
+
+
+
+        <activity android:name="com.zongbutech.lxleanlingdongdemo.Wallpaper.LxWallPaperAcitivity"></activity>
+        <activity android:name="com.zongbutech.lxleanlingdongdemo.Wallpaper.LxGetMp4Activity"></activity>
+
+        <service
+            android:name=".Wallpaper.CameraLiveWallpaper"
+            android:label="照相机壁纸"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <!-- 为实时壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为实时壁纸配置meta-data -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+        </service>
+        <service
+            android:name=".Wallpaper.VideoLiveWallpaper"
+            android:label="视频壁纸"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <!-- 为实时壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为实时壁纸配置meta-data -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+        </service>
+
+
+        <service
+            android:name=".Wallpaper.VR.VRBitmapWallpaper"
+            android:label="VR壁纸"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <!-- 为实时壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为实时壁纸配置meta-data -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+        </service>
+
+
+        <activity android:name="com.zongbutech.lxleanlingdongdemo.Accessibility.LxAllAccessAcitivity">
+
+        </activity>
+
+        <activity android:name="com.zongbutech.lxleanlingdongdemo.WindowManager.LxShowMovieWindows" />
+
+
+        <service
+            android:name=".Accessibility.GetTopActivityAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/AccessServiceTopName"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+
+        <service
+            android:name=".Accessibility.QQ.QQResultAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/AccessServiceQQResultName"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config_qq_result" />
+        </service>
+        <service
+            android:name=".Accessibility.QQ.QQMoneyAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/AccessServiceQQMoneyName"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config_qq_result" />
+        </service>
+
+
+        <service
+            android:name=".Accessibility.Wechat.WechatResultAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/AccessServiceWechatResultName"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config_wechat_result" />
+        </service>
+        <service
+            android:name=".Accessibility.Wechat.WechatMoneyAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/AccessServiceWechatMoneyName"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config_wechat_money" />
+        </service>
+
+
+        <service
+            android:name=".Accessibility.InstallService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/AccessServiceInstallName"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_install" />
+        </service>
+
+
+
+        <!--是WebView扩展的 不能用辅助功能-->
+        <!--<service-->
+            <!--android:name=".Accessibility.Buy12306AccessibilityService"-->
+            <!--android:enabled="true"-->
+            <!--android:exported="true"-->
+            <!--android:label="@string/AccessServiceBuy1230"-->
+            <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
+            <!--</intent-filter>-->
+
+            <!--<meta-data-->
+                <!--android:name="android.accessibilityservice"-->
+                <!--android:resource="@xml/accessibility_service_buy_12306" />-->
+        <!--</service>-->
 
     </application>
 
